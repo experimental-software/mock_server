@@ -14,9 +14,9 @@ The intended usage is that you copy this repository and then adopt it.
 
 ```bash
 PROJECT_NAME=example
-DEFAULT_BRANCH=master
 
 {
+DEFAULT_BRANCH=master
 git clone git@github.com:experimental-software/mock_server.git $PROJECT_NAME
 cd $PROJECT_NAME
 git checkout --orphan $DEFAULT_BRANCH
