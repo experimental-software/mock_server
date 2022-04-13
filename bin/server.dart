@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:mock_server/service.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart';
+import 'package:shelf_cors_headers/shelf_cors_headers.dart';
 import 'package:shelf_router/shelf_router.dart';
 
 const int defaultPort = 8080;
@@ -22,16 +23,19 @@ void main(List<String> args) async {
       .addMiddleware(
         logRequests(),
       )
-      .addHandler(
-        Cascade()
-            .add(
-              _service.router,
-            )
-            .add(
-              _fallbackRouter,
-            )
-            .handler,
-      );
+      .addMiddleware(corsHeaders(
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+      ))
+      .addHandler(Cascade()
+          .add(
+            _service.router,
+          )
+          .add(
+            _fallbackRouter,
+          )
+          .handler);
   var server = await serve(handler, InternetAddress.anyIPv4, args.port);
   print('Server listening on port ${server.port}');
 }
