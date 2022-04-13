@@ -18,11 +18,21 @@ var _fallbackRouter = Router(notFoundHandler: (request) {
 });
 
 void main(List<String> args) async {
-  final _handler = Pipeline()
-      .addMiddleware(logRequests())
-      .addHandler(Cascade().add(_service.router).add(_fallbackRouter).handler);
-
-  final server = await serve(_handler, InternetAddress.anyIPv4, args.port);
+  var handler = Pipeline()
+      .addMiddleware(
+        logRequests(),
+      )
+      .addHandler(
+        Cascade()
+            .add(
+              _service.router,
+            )
+            .add(
+              _fallbackRouter,
+            )
+            .handler,
+      );
+  var server = await serve(handler, InternetAddress.anyIPv4, args.port);
   print('Server listening on port ${server.port}');
 }
 
