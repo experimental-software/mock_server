@@ -10,7 +10,7 @@ the help of the [Dart](https://www.dart.dev) programming language.
 
 ## Getting started
 
-The intended usage is that you copy this repository and then adopt it.
+The intended usage is that you copy this repository and then adapt it.
 
 ```bash
 PROJECT_NAME=example
@@ -33,9 +33,6 @@ dart bin/server.dart
 
 # Run server on specific port
 dart bin/server.dart 9876
-
-# Run server with hot reload
-ENABLE_VM_SERVICE=true dart --enable-vm-service bin/server.dart
 ```
 
 ## Run server via Docker
