@@ -8,7 +8,9 @@ the help of the [Dart](https://www.dart.dev) programming language.
 - [Dart](https://www.dart.dev): Required to configure and run the mock server
 - [Docker](https://www.docker.com): (Optional) Required to package and publish the mock server
 
-## Getting started
+## Init
+
+### With Git repo
 
 The intended usage is that you copy this repository and then adapt it.
 
@@ -22,6 +24,17 @@ cd $PROJECT_NAME
 git checkout --orphan $DEFAULT_BRANCH
 git add .
 git commit -m "Initial commit"
+}
+```
+
+### Within Git repo
+
+```bash
+PROJECT_NAME=example
+{
+git clone git@github.com:experimental-software/mock_server.git /tmp/$PROJECT_NAME || exit 1
+rm -rf /tmp/$PROJECT_NAME/.git
+cp -r /tmp/$PROJECT_NAME .
 }
 ```
 
