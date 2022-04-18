@@ -69,7 +69,7 @@ curl localhost:7777/
 ### Generate routes
 
 ```
-dart pub run build_runner build
+dart run build_runner build
 ```
 
 ### Snippets
