@@ -1,6 +1,6 @@
-# Mock Server
+# Mini Server
 
-This is a template repository which has the intention to make it quick and easy to build mock servers with
+This is a template repository which has the intention to make it quick and easy to build small servers with
 the help of the [Dart](https://www.dart.dev) programming language.
 
 ## Dependencies
